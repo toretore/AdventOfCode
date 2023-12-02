@@ -7,7 +7,7 @@ fn main() {
           c.is_digit(10)
         ).collect::<Vec<_>>()
       ).ok().and_then(|ds|
-        if ds.len() > 1 {//need >= 2 digits
+        if ds.len() > 0 {
             String::from_iter(
               vec![ds.first().unwrap(), ds.last().unwrap()]
             ).parse::<i32>().ok()
@@ -16,7 +16,6 @@ fn main() {
         }
       )
     ).fold(0, |s, d|
-      //ds for certain contains >= 2 elements here
       s + d
     );
 
